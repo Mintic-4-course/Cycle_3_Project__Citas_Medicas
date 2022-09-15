@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.contrib.auth.hashers import make_password
 
+
 class UserManager(BaseUserManager):
     def create_user(self, username, password=None):
         """
@@ -13,7 +14,7 @@ class UserManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
         return user
-    
+
     def create_superuser(self, username, password):
         """
         Creates and saves a superuser with the given username and password.
@@ -26,16 +27,17 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+
 class User(AbstractBaseUser, PermissionsMixin):
     id_usuario = models.BigAutoField(primary_key=True)
-    username = models.CharField('Username', max_length = 20, unique=True)
-    password = models.CharField('Password', max_length = 50)
-    nombre = models.CharField('Name', max_length = 30)
-    apellido = models.CharField('Apellido', max_length = 30)
-    email = models.EmailField('Email', max_length = 100)
-    tipo_documento = models.CharField('Tipo de documento', max_length = 50)
-    numero_documento = models.CharField('Numero de documento', max_length = 50)
-    direccion = models.CharField('Direccion', max_length = 100)
+    username = models.CharField('Username', max_length=20, unique=True)
+    password = models.CharField('Password', max_length=50)
+    nombre = models.CharField('Name', max_length=30)
+    apellido = models.CharField('Apellido', max_length=30)
+    email = models.EmailField('Email', max_length=100)
+    tipo_documento = models.CharField('Tipo de documento', max_length=50)
+    numero_documento = models.CharField('Numero de documento', max_length=50)
+    direccion = models.CharField('Direccion', max_length=100)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
