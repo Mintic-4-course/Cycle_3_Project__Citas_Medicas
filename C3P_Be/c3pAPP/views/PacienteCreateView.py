@@ -1,7 +1,7 @@
 from rest_framework import status, views
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from c3pAPP.serializers.pacienteSeializer import pacienteSerializer
+from c3pAPP.serializers.pacienteSerializer import pacienteSerializer
 
 
 class PacienteCreate (views.APIView):
