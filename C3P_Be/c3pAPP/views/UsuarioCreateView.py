@@ -13,7 +13,7 @@ class UsuarioCreateView(views.APIView):
 
         tokenData = {"username": request.data["username"],
                      "password": request.data["password"]}
-        #tokenSerializer = TokenObtainPairSerializer(data=tokenData)
-        #tokenSerializer.is_valid(raise_exception=True)
+        tokenSerializer = TokenObtainPairSerializer(data=tokenData)
+        tokenSerializer.is_valid(raise_exception=True)
 
         return Response( status=status.HTTP_201_CREATED)
