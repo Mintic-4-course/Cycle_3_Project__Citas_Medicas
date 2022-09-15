@@ -4,4 +4,4 @@ from rest_framework import serializers
 class personal_saludSerializer(serializers.ModelSerializer):
     class Meta:
         model = personal_salud
-        fields = ['id_personal', 'id_usuario', 'id_rol']
+        fields = ['id', 'id_usuario', 'id_rol']

@@ -4,5 +4,5 @@ from rest_framework import serializers
 class historial_signosSerializer(serializers.ModelSerializer):
     class Meta:
         model = historial_signos
-        fields = ['id_historial_signos', 'id_paciente', 'id_familiar', 'id_signos_vitales',
+        fields = ['id', 'id_paciente', 'id_familiar', 'id_signos_vitales',
                   'fecha_historial', 'observaciones']
