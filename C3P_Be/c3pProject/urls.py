@@ -23,6 +23,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', TokenObtainPairView.as_view()),
     path('refresh/', TokenRefreshView.as_view()),
+    # Usuarios
     path('user/', views.UsuarioCreateView.as_view()),
     path('user/<int:pk>/', views.UsuarioDetailView.as_view()),
+    path('users/', views.UsuarioListView.as_view()),
+    # Pacientes
+    path('paciente/', views.PacienteCreateView.as_view()),
+    path('pacientes/', views.PacienteListView.as_view()),
 ]

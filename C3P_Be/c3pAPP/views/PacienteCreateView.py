@@ -4,7 +4,7 @@ from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from c3pAPP.serializers.pacienteSerializer import pacienteSerializer
 
 
-class PacienteCreate (views.APIView):
+class PacienteCreateView(views.APIView):
     def post(self, request, *args, **kwargs):
         serializer = pacienteSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
