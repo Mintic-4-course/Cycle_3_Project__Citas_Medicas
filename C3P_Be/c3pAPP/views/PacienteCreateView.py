@@ -1,12 +1,12 @@
 from rest_framework import status, views
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from c3pAPP.serializers.usuarioSerializer import usuarioSerializer
+from c3pAPP.serializers.pacienteSeializer import pacienteSerializer
 
 
-class UsuarioCreateView(views.APIView):
+class PacienteCreate (views.APIView):
     def post(self, request, *args, **kwargs):
-        serializer = usuarioSerializer(data=request.data)
+        serializer = pacienteSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
