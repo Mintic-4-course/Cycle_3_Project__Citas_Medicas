@@ -5,7 +5,7 @@ from .personal_salud import personal_salud
 from .historial_signos import historial_signos
 
 class sugerencia (models.Model):
-    id_sugerencia = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     id_personal = models.ForeignKey(personal_salud, null=True, blank=True, on_delete=models.CASCADE)
     id_historial_signos = models.ForeignKey(historial_signos, null=True, blank=True, on_delete=models.CASCADE)
     fecha_sugerencia = models.DateTimeField(verbose_name='Fecha de la sugerencia')
