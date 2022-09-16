@@ -3,3 +3,5 @@ from .UsuarioDetailView import UsuarioDetailView
 from .PacienteCreateView import PacienteCreateView
 from .UsuarioListView import UsuarioListView
 from .PacienteListView import PacienteListView
+from .Personal_SaludCreateView import Personal_SaludCreateView
+from .Personal_SaludListView import Personal_SaludListView

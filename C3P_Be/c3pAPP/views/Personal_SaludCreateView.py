@@ -1,15 +1,15 @@
 from rest_framework import status, views
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from c3pAPP.serializers.pacienteSerializer import pacienteSerializer
+from c3pAPP.serializers.personal_saludSerializer import personal_saludSerializer
 
 
-class PacienteCreateView(views.APIView):
+class Personal_SaludCreateView(views.APIView):
     def post(self, request, *args, **kwargs):
-        serializer = pacienteSerializer(data=request.data)
+        serializer = personal_saludSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        
+
         #Se comenta la validacion para no ingresar username ni password en el POST
         '''tokenData = {"username": request.data["username"],
                      "password": request.data["password"]}

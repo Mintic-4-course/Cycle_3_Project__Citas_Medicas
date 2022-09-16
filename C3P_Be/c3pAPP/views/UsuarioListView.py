@@ -4,7 +4,6 @@ from rest_framework.response import Response
 from c3pAPP.serializers.usuarioSerializer import usuarioSerializer
 from c3pAPP.models.usuario import User
 
-
 class UsuarioListView(views.APIView):
     def get(self, request, *args, **kwargs):
         queryset = User.objects.all()
