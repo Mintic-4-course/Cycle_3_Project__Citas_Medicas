@@ -32,8 +32,13 @@ urlpatterns = [
     path('paciente/<int:pk>/', views.PacienteDetailView.as_view()),
     path('pacientes/', views.PacienteListView.as_view()),
     # Personal_Salud
-    path('personal_salud/', views.Personal_SaludCreateView.as_view()),
-    path('personal_salud_list/', views.Personal_SaludListView.as_view()),
+    path('personal-salud/', views.Personal_SaludCreateView.as_view()),
+    path('personal-salud-list/', views.Personal_SaludListView.as_view()),
+    path('personal-salud/<int:pk>/', views.Personal_SaludDetailView.as_view()),
     # Familiar
     path('familiar/', views.FamiliarCreateView.as_view()),
+    # Asignacion_Paciente
+    path('asignacion-paciente/', views.Asignacion_PacienteCreateView.as_view()),
+    path('asignacion-paciente/<int:id_paciente>/', views.Asignacion_PacienteDetailView.as_view()),
+
 ]
