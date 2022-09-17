@@ -38,6 +38,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     tipo_documento = models.CharField('Tipo de documento', max_length=50)
     numero_documento = models.CharField('Numero de documento', max_length=50)
     direccion = models.CharField('Direccion', max_length=100)
+    telefono = models.CharField('Telefono', max_length=50)
 
     def save(self, **kwargs):
         some_salt = 'mMUj0DrIK6vgtdIYepkIxN'
