@@ -41,12 +41,6 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = [
-    'http://localhost:3000',
-    'http://localhost:8000',
-    'http://127.0.0.1:9000'
-]
-
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
