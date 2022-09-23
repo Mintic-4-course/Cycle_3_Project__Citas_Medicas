@@ -15,7 +15,38 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework_simplejwt.views import TokenObtainPairView
+from rest_framework_simplejwt.views import TokenRefreshView
+from c3pAPP import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('login/', TokenObtainPairView.as_view()),
+    path('refresh/', TokenRefreshView.as_view()),
+    # Usuarios
+    path('user/', views.UsuarioCreateView.as_view()),
+    path('user/<int:pk>/', views.UsuarioDetailView.as_view()),
+    path('users/', views.UsuarioListView.as_view()),
+    # Pacientes
+    path('paciente/', views.PacienteCreateView.as_view()),
+    path('paciente/<int:pk>/', views.PacienteDetailView.as_view()),
+    path('pacientes/', views.PacienteListView.as_view()),
+    # Personal_Salud
+    path('personal-salud/', views.Personal_SaludCreateView.as_view()),
+    path('personal-salud-list/', views.Personal_SaludListView.as_view()),
+    path('personal-salud/<int:pk>/', views.Personal_SaludDetailView.as_view()),
+    # Familiar
+    path('familiar/', views.FamiliarCreateView.as_view()),
+    # Asignacion_Paciente
+    path('asignacion-paciente/', views.Asignacion_PacienteCreateView.as_view()),
+    path('asignacion-paciente/<int:id_paciente>/', views.Asignacion_PacienteDetailView.as_view()),
+    # Signos_Vitales
+    path('signos-vitales/',views.Signos_VitalesCreateView.as_view()),
+    # Historial_Signos
+    path('historial-signos/',views.Historial_SignosCreateView.as_view()),
+    path('historial-signos/<int:id_paciente>/',views.Historial_SignosDetailView.as_view()),
+    #
+    path('sugerencia/',views.SugerenciaCreateView.as_view()),
+    path('sugerencia/<int:id_historial_signos>/',views.SugerenciaDetailView.as_view())
+
 ]

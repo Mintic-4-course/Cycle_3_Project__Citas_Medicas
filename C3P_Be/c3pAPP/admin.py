@@ -8,6 +8,7 @@ from .models.asignacion_paciente import asignacion_paciente
 from .models.signos_vitales import signos_vitales
 from .models.historial_signos import historial_signos
 from .models.sugerencia import sugerencia
+
 # Register your models here.
 
 admin.site.register(User)

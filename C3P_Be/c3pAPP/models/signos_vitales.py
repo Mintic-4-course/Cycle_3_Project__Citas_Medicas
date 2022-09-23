@@ -1,7 +1,7 @@
 from django.db import models
 
 class signos_vitales (models.Model):
-    id_signos_vitales = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     presion_sistolica = models.IntegerField(default=0)
     presion_diastolica = models.IntegerField(default=0)
     frecuencia_respiratoria = models.IntegerField(default=0)

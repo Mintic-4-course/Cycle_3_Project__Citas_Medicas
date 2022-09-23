@@ -1,5 +1,5 @@
 # Project Citas Medicas
-#### Ciclo 3 - grupo 61 - 62 Mintic
+#### Ciclo 3 - grupo 61 - 62 
 
 Integrantes:
 1. Michael Alexander Gil
