@@ -1,5 +1,5 @@
 from .asignacion_pacienteSerializer import asignacion_pacienteSerializer
-from .familiarSerializer import familiarSerializer
+from .familiarSerializer import GETfamiliarSerializer, POSTfamiliarSerializer
 from .historial_signosSerializer import historial_signosSerializer
 from .pacienteSerializer import GETpacienteSerializer, POSTpacienteSerializer
 from .personal_saludSerializer import GETpersonal_saludSerializer, POSTpersonal_saludSerializer
