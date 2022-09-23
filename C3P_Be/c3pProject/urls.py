@@ -29,7 +29,7 @@ urlpatterns = [
     path('users/', views.UsuarioListView.as_view()),
     # Pacientes
     path('paciente/', views.PacienteCreateView.as_view()),
-    path('paciente/<int:pk>/', views.PacienteDetailView.as_view()),
+    path('paciente/<int:id_paciente>/', views.PacienteDetailView.as_view()),
     path('pacientes/', views.PacienteListView.as_view()),
     # Personal_Salud
     path('personal-salud/', views.Personal_SaludCreateView.as_view()),
@@ -40,5 +40,9 @@ urlpatterns = [
     # Asignacion_Paciente
     path('asignacion-paciente/', views.Asignacion_PacienteCreateView.as_view()),
     path('asignacion-paciente/<int:id_paciente>/', views.Asignacion_PacienteDetailView.as_view()),
+    # Signos_Vitales
+    path('signos-vitales/',views.Signos_VitalesCreateView.as_view()),
+    # Historial_Signos
+    path('historial-signos/',views.Historial_SignosCreateView.as_view()),
 
 ]

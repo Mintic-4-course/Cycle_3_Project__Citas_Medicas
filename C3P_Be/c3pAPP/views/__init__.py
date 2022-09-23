@@ -10,3 +10,5 @@ from .FamiliarCreateView import FamiliarCreateView
 from .Personal_SaludDetailView import Personal_SaludDetailView
 from .Asignacion_PacienteCreateView import Asignacion_PacienteCreateView
 from .Asignacion_PacienteDetailView import Asignacion_PacienteDetailView
+from .Signos_VitalesCreateView import Signos_VitalesCreateView
+from .Historial_SignosCreateView import Historial_SignosCreateView
