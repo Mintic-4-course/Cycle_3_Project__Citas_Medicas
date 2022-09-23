@@ -1,6 +1,6 @@
 from .asignacion_pacienteSerializer import GETasignacion_pacienteSerializer, POSTasignacion_pacienteSerializer
 from .familiarSerializer import GETfamiliarSerializer, POSTfamiliarSerializer
-from .historial_signosSerializer import historial_signosSerializer
+from .historial_signosSerializer import GEThistorial_signosSerializer, POSThistorial_signosSerializer
 from .pacienteSerializer import GETpacienteSerializer, POSTpacienteSerializer
 from .personal_saludSerializer import GETpersonal_saludSerializer, POSTpersonal_saludSerializer
 from .rolSerializer import rolSerializer

@@ -1,12 +1,12 @@
 from rest_framework import status, views
 from rest_framework.response import Response
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
-from c3pAPP.serializers.historial_signosSerializer import historial_signosSerializer
+from c3pAPP.serializers.historial_signosSerializer import POSThistorial_signosSerializer
 
 
 class Historial_SignosCreateView(views.APIView):
     def post(self, request, *args, **kwargs):
-        serializer = historial_signosSerializer(data=request.data)
+        serializer = POSThistorial_signosSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
