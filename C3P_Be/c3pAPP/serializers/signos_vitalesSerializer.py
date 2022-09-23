@@ -7,3 +7,10 @@ class signos_vitalesSerializer(serializers.ModelSerializer):
         fields = ['id', 'presion_sistolica', 'presion_diastolica', 
                   'frecuencia_respiratoria', 'glicemia', 'oximetria', 'temperatura', 
                   'frecuencia_cardiaca']
+        
+class signos_vitalesSerializerDetail(serializers.ModelSerializer):
+    class Meta:
+        model = signos_vitales
+        fields = ['presion_sistolica', 'presion_diastolica', 
+                  'frecuencia_respiratoria', 'glicemia', 'oximetria', 'temperatura', 
+                  'frecuencia_cardiaca']

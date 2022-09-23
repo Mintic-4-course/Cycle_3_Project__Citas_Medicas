@@ -5,5 +5,5 @@ from .pacienteSerializer import pacienteSerializer
 from .personal_saludSerializer import personal_saludSerializer
 from .rolSerializer import rolSerializer
 from .signos_vitalesSerializer import signos_vitalesSerializer
-from .sugerenciaSerializer import sugerenciaSerializer
+from .sugerenciaSerializer import GETsugerenciaSerializer, POSTsugerenciaSerializer
 from .usuarioSerializer import usuarioSerializer

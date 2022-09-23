@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework_simplejwt.backends import TokenBackend
 
-from c3pAPP.serializers.pacienteSerializer import pacienteSerializer
+from c3pAPP.serializers.pacienteSerializer import pacienteSerializer 
 from c3pAPP.models.paciente import paciente
 
 

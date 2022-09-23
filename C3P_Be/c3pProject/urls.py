@@ -44,5 +44,9 @@ urlpatterns = [
     path('signos-vitales/',views.Signos_VitalesCreateView.as_view()),
     # Historial_Signos
     path('historial-signos/',views.Historial_SignosCreateView.as_view()),
+    path('historial-signos/<int:id_paciente>/',views.Historial_SignosDetailView.as_view()),
+    #
+    path('sugerencia/',views.SugerenciaCreateView.as_view()),
+    path('sugerencia/<int:id_historial_signos>/',views.SugerenciaDetailView.as_view())
 
 ]
