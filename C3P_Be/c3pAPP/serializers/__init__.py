@@ -1,7 +1,7 @@
 from .asignacion_pacienteSerializer import asignacion_pacienteSerializer
 from .familiarSerializer import familiarSerializer
 from .historial_signosSerializer import historial_signosSerializer
-from .pacienteSerializer import pacienteSerializer
+from .pacienteSerializer import GETpacienteSerializer, POSTpacienteSerializer
 from .personal_saludSerializer import personal_saludSerializer
 from .rolSerializer import rolSerializer
 from .signos_vitalesSerializer import signos_vitalesSerializer

@@ -29,7 +29,7 @@ urlpatterns = [
     path('users/', views.UsuarioListView.as_view()),
     # Pacientes
     path('paciente/', views.PacienteCreateView.as_view()),
-    path('paciente/<int:id_paciente>/', views.PacienteDetailView.as_view()),
+    path('paciente/<int:pk>/', views.PacienteDetailView.as_view()),
     path('pacientes/', views.PacienteListView.as_view()),
     # Personal_Salud
     path('personal-salud/', views.Personal_SaludCreateView.as_view()),
