@@ -147,6 +147,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# import os
+# from pathlib import Path
+
+# BASE_DIR = Path(__file__).resolve().parent.parent
+
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
