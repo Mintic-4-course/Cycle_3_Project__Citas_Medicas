@@ -1,5 +1,3 @@
-from statistics import mode
-from tkinter import CASCADE
 from django.db import models
 from .personal_salud import personal_salud
 from .historial_signos import historial_signos
