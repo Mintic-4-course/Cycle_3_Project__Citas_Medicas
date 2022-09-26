@@ -1,12 +1,10 @@
 <template>
-  <div class="signUp_user">
-
-  </div>
+$END$
 </template>
 
 <script>
 export default {
-  name: "SingUp"
+name: "SingUp"
 }
 </script>
 
