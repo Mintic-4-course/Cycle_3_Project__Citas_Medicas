@@ -6,88 +6,68 @@
         <div class="login d-flex align-items-center py-5">
           <div class="container">
             <div class="row">
-              <div class="col-lg-10 col-xl-7 mx-auto">
-                <h3 class="display-4">Dr House</h3>
-                <p class="text-muted mb-4">Hopitalizacion en casa.</p>
-                <form v-on:submit.prevent="processLogInUser" class="form">
-                  <div class="mb-3">
-                    <input id="username" v-model="user.username" type="text" placeholder="Username" required="" autofocus=""
-                           class="form-control rounded-pill border-0 shadow-sm px-4"/>
-                  </div>
-                  <div class="mb-3">
-                    <input id="password"  v-model="user.password" type="password" placeholder="Password" required=""
-                           class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"/>
-                  </div>
-                  <div class="d-grid gap-2 mt-2">
-                    <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">
-                      Login
-                    </button>
-                  </div>
-                  <div class="d-flex align-items-center justify-content-center pb-4">
-                    <p class="mb-0 me-2">¿No posees una cuenta?</p>
-                    <button v-on:click="loadSignUp" type="button" class="btn btn-outline-primary">Create new</button>
-                  </div>
-                  <div class="text-center d-flex justify-content-between mt-4"><p>EQUIPO 6 MINTIC BIMESTRE 3 <a
-                      class="font-italic text-muted"></a></p></div>
-                </form>
+              <div class="col-lg-10 col-xl-7 mx-auto">              
+               <log-in v-on:goLogIn="goLogIn"></log-in>
+                 
+                              
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
   </div>
+  
 </template>
 
 <script>
-import axios from 'axios';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import LogIn from "./components/LogIn.vue";
+
 
 export default {
   name: 'App',
-
-  data: function () {
-    return {
-      user: {
-        username: "",
-        password: ""
-      }
+  data: function(){
+    return{
+      is_auth:false
     }
   },
-
-  methods: {
-    processLogInUser: function(){
-      axios.post(
-          "https://drhouse-be.herokuapp.com/login/",
-          this.user,
-          {headers: {} }
-      ).then((result) => {
-        let dataLogin = {
-          username: this.user.username,
-          token_access: result.data.access,
-          token_refresh: result.data.refresh,
-        }
-        this.$emit('goLogIn',dataLogin)
-        console.log('exito')
-      }).catch((err) => {
-        if (err.response.status === 401) {
-          alert("ERROR 401: Credenciales Incorrectas.");
-        }
-        if (err.response.status === 400) {
-          alert("ERROR 400: Bad request.");
-        }
-        if (err.response.status === 500) {
-          alert("ERROR 500: Internal server error.");
-        }
-      });
+  components:{
+    LogIn
+},
+  methods:{
+    verifyAuth: function(){
+      
+     
     },
-
+    loadLogIn: function(){
+      
+    },
     loadSignUp: function(){
-      this.$router.push({name: 'signUp'});
-    }
+      this.$router.push({name:"signUp"})
+    },
+    goLogIn: function(data){
+      localStorage.setItem("isAuth", true);
+      localStorage.setItem("username", data?.username);
+      localStorage.setItem("token_access", data?.token_access);
+      localStorage.setItem("token_refresh", data?.token_refresh);
+      alert("usuario"+localStorage.getItem("username")+localStorage.getItem("token_access"));
+      alert("Autenticación Exitosa");
+      this.verifyAuth();
+    },
+    completedSignUp: function(data){
+      alert("Registro Exitoso");
+      this.completedLogIn(data);
+    },
   },
-}
+  created: function(){
+    this.verifyAuth()
+  }
+
+} 
 </script>
 
 <style>
