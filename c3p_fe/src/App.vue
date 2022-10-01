@@ -6,10 +6,8 @@
         <div class="login d-flex align-items-center py-5">
           <div class="container">
             <div class="row">
-              <div class="col-lg-10 col-xl-7 mx-auto">              
-               <log-in v-on:goLogIn="goLogIn"></log-in>
-                 
-                              
+              <div class="col-lg-10 col-xl-7 mx-auto">                
+                <router-view ></router-view>                                          
               </div>
             </div>
           </div>
@@ -20,12 +18,10 @@
   </div>
   
 </template>
-
 <script>
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import LogIn from "./components/LogIn.vue";
+//import LogIn from "./components/LogIn.vue";
 
 
 export default {
@@ -36,7 +32,7 @@ export default {
     }
   },
   components:{
-    LogIn
+    //LogIn
 },
   methods:{
     verifyAuth: function(){
@@ -58,12 +54,13 @@ export default {
       alert("Autenticación Exitosa");
       this.verifyAuth();
     },
-    completedSignUp: function(data){
+    goSignUp: function(data){
       alert("Registro Exitoso");
-      this.completedLogIn(data);
+      this.goLogIn(data);
     },
   },
-  created: function(){
+  created: function(){ 
+    
     this.verifyAuth()
   }
 

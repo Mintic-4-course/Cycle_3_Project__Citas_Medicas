@@ -60,7 +60,7 @@ export default {
         this.$emit('goLogIn', dataLogin)
         console.log('exito')
       }).catch((err) => {
-        console.log("hay un error"+ err)
+        console.log("hay un error"+  err)
         if (err?.response?.status === 401) {
           alert("ERROR 401: Credenciales Incorrectas.");
         }
