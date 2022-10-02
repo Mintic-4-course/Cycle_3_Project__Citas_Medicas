@@ -1,6 +1,3 @@
-/* 'username', 'password',
-'nombre', 'apellido', 'email', 'tipo_documento',
-'numero_documento', 'direccion', 'telefono']*/
 <template>
     <div class="signUp_user">
         <div class="container_signUp_user">
@@ -59,12 +56,6 @@ export default {
                 numero_documento:"",
                 direccion:"",
                 telefono:"",
-
-                account:{
-                    lastChangeDate: (new Date()).toJSON().toString(),
-                    balance:0,
-                    isActive:true
-                }
             }
         }
 
