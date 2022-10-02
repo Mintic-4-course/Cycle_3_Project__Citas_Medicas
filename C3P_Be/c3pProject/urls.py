@@ -37,8 +37,10 @@ urlpatterns = [
     path('personal-salud/<int:pk>/', views.Personal_SaludDetailView.as_view()),
     # Familiar
     path('familiar/', views.FamiliarCreateView.as_view()),
+    path('familiares/', views.FamiliarListView.as_view()),
     # Asignacion_Paciente
     path('asignacion-paciente/', views.Asignacion_PacienteCreateView.as_view()),
+    path('asignaciones-paciente/', views.Asignacion_PacienteListView.as_view()),
     path('asignacion-paciente/<int:id_paciente>/', views.Asignacion_PacienteDetailView.as_view()),
     # Signos_Vitales
     path('signos-vitales/',views.Signos_VitalesCreateView.as_view()),
