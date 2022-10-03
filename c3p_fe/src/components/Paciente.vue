@@ -77,7 +77,7 @@
         />
       </div>
       <hr/>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Registrar Paciente</button>
     </form>
   </div>
 </template>

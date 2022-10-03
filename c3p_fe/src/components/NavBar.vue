@@ -24,7 +24,7 @@
             <a v-on:click="personalSalud" class="nav-link" href="#">Crear Medico</a>
           </li>
           <li class="nav-item">
-            <a v-on:click="asignacionPaciente" class="nav-link" href="#">Asginar Paciente</a>
+            <a v-on:click="asignacionPaciente" class="nav-link" href="#">Asignar Paciente</a>
           </li>
           <li class="nav-item">
             <a v-on:click="tablaAsignacion" class="nav-link" href="#">Tabla de pacientes</a>
@@ -55,13 +55,13 @@ export default {
       this.$router.push({name: "asignacionPaciente"})
     },
     home: function () {
-      this.$emit("verifyAuth",)
+      this.$router.push({name: "homeUser"})
     },
     logOut: function(){
       localStorage.clear();
       alert("Sesion Cerrada");
       localStorage.setItem("isAuth",false);
-      this.$router.push({name: "homepage"})
+      this.$router.push({name: "root"})
     },
   }
 }

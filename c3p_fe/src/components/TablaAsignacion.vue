@@ -2,24 +2,35 @@
   <NavBar></NavBar>
 
   <div>
-    <b-container fluid class="p-5 bg-primary text-white text-center mb-4">
-      <p>Tabla de pacientes</p>
-    </b-container>
-    <b-container>
-      <!--      tabla que muestra los pacientes-->
-<!--      <tbody>-->
-<!--&lt;!&ndash;        <tr v-for='user, index int' >&ndash;&gt;-->
-<!--          <th scope="row">1</th>-->
-<!--          <th>{{user.nombre}}</th>-->
-<!--          <th>{{user.apellido}}</th>-->
-<!--          <th>{{user.tipo_documento}}</th>-->
-<!--          <th>{{user.numero_documento}}</th>-->
-<!--        </tr>-->
-<!--      </tbody>-->
+    <div>
+      <h1>Asignaciones de pacientes</h1>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Nombre Paciente</th>
+          <th scope="col">EPS</th>
+          <th scope="col">Tipo documento</th>
+          <th scope="col">Identificacion</th>
+          <th scope="col">Fecha Nacimiento</th>
+          <th scope="col">Medico Asignado</th>
+          <th scope="col">Familiar Asignado</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="asignacion in asignaciones" :key="asignacion.id">
+          <td>{{ asignacion.id_paciente.id_usuario.nombre + " " + asignacion.id_paciente.id_usuario.apellido }}</td>
+          <td>{{ asignacion.id_paciente.eps }}</td>
+          <td>{{ asignacion.id_paciente.id_usuario.tipo_documento }}</td>
+          <td>{{ asignacion.id_paciente.id_usuario.numero_documento }}</td>
+          <td>{{ asignacion.id_paciente.fecha_nacimiento}}</td>
+          <td>{{ asignacion.id_personal.id_usuario.nombre + " " + asignacion.id_personal.id_usuario.apellido }}</td>
+          <td>{{ asignacion.id_personal.id_usuario.nombre }}</td>
+        </tr>
+        </tbody>
+      </table>
+      <button v-on:submit.prevent="actualizar" type="submit" class="btn btn-primary">Actualizar</button><hr>
+    </div>
 
-      <!-- bootstrap-vue table -->
-      <!--      <b-table striped hover :items="items"></b-table>-->
-    </b-container>
   </div>
 </template>
 
@@ -30,27 +41,92 @@ import NavBar from "@/components/NavBar";
 export default {
   name: "TablaAsignacion",
   components: {NavBar},
-  mounted() {
-    axios.get(
-        "https://drhouse-be.herokuapp.com/pacientes/",
-        this.user,
-        {headers: {}}
-    ).then((result) => {
-      this.users = result.data;
-    }).catch((error) => {
-      console.log(error);
-    });
-  },
-  data() {
+
+  data: function () {
     return {
-      fields: ['id', 'nombre', 'apellido', 'tipo_documento', 'numero_documento', 'direccion', 'telefono'],
-      items: [],
-      post: []
+      asignaciones: [],
+      asignacion: {
+        id_paciente: {
+          id_usuario: {
+            nombre: '',
+            apellido: '',
+            numero_documento: '',
+            tipo_documento: 'AAAA-mm-dd',
+          },
+          fecha_nacimiento: '',
+          eps: '',
+
+        },
+        id_familiar: {
+          id_usuario: {
+            nombre: '',
+            apellido: ''
+          },
+          parentesco: '',
+        },
+
+        id_personal: {
+          id_usuario: {
+            nombre: '',
+            apellido: ''
+          },
+        },
+      },
+    }
+  },
+  created() {
+    // obtener lista de asginaciones desde backend
+    axios.get(
+        'https://drhouse-be.herokuapp.com/asignaciones-paciente/'
+    ).then(res => {
+          // obtener el nombre, apellido,eps del paciente, nombre parentesco del familiar y nombre apellido del personal
+          this.asignaciones = res.data.map(asignacion => {
+            return {
+              id: asignacion.id,
+              id_familiar: {
+                id_usuario: {
+                  nombre: asignacion.id_familiar.id_usuario.nombre,
+                  apellido: asignacion.id_familiar.id_usuario.apellido,
+                  parentesco: asignacion.id_familiar.parentesco,
+                },
+              },
+              id_paciente: {
+                id_usuario: {
+                  nombre: asignacion.id_paciente.id_usuario.nombre,
+                  apellido: asignacion.id_paciente.id_usuario.apellido,
+                  numero_documento: asignacion.id_paciente.id_usuario.numero_documento,
+                  tipo_documento: asignacion.id_paciente.id_usuario.tipo_documento,
+                },
+                fecha_nacimiento: asignacion.id_paciente.fecha_nacimiento,
+                eps: asignacion.id_paciente.eps,
+              },
+              id_personal: {
+                id_usuario: {
+                  nombre: asignacion.id_personal.id_usuario.nombre,
+                  apellido: asignacion.id_personal.id_usuario.apellido,
+                },
+              },
+            }
+          })
+          console.log(this.asignaciones);
+        },
+    );
+  },
+  methods:{
+    actualizar: function (){
+      this.$router.push({name: 'AsignacionPaciente'})
     }
   }
 }
+
 </script>
 
 <style scoped>
-
+/*centrar un boton */
+.btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 </style>

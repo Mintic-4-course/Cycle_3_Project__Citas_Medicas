@@ -8,8 +8,8 @@
       <div class="form-group">
         <label for="InputUsername">Username</label>
         <select v-model="personal_salud.id_usuario" class="form-control">
-          <option v-for="user in usuarios" :value="user.id" :key="user.id" >
-            {{ user.username }}
+          <option v-for="user in usuarios" :value="user.id" :key="user.id">
+            {{ user.nombre + " " + user.apellido }}
           </option>
         </select>
       </div>
@@ -27,7 +27,7 @@
         </select>
       </div>
       <hr/>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-primary">Registrar Personal</button>
     </form>
   </div>
 
