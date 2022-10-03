@@ -3,7 +3,7 @@
 
   <div>
     <div>
-      <h1>Asignaciones de pacientes</h1>
+      <h1>Asignación De Pacientes</h1>
       <table class="table table-striped">
         <thead>
         <tr>
@@ -128,5 +128,11 @@ export default {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+/*centrar titulo h1 con bordes de 5px*/
+h1 {
+  text-align: center;
+  border: 5px ;
+  padding: 10px;
 }
 </style>

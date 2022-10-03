@@ -4,7 +4,6 @@
       <br/>
       <h1>Registrar usuario</h1>
       <form v-on:submit.prevent="processSignUp">
-
         <div class="form-group">
           <label for="InputUsername">Username</label>
           <input
