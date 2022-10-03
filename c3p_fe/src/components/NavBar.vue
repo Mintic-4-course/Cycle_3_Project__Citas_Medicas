@@ -27,7 +27,7 @@
             <a v-on:click="asignacionPaciente" class="nav-link" href="#">Asignar Paciente</a>
           </li>
           <li class="nav-item">
-            <a v-on:click="tablaAsignacion" class="nav-link" href="#">Tabla de pacientes</a>
+            <a v-on:click="tablaAsignacion" class="nav-link" href="#">Tabla De Asignación Paciente</a>
           </li>
           <li v-on:click="logOut" class="nav-item">
             <a class="nav-link" href="#">Cerrar Sesion</a>
